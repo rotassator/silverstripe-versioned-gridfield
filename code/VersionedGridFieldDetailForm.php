@@ -32,12 +32,12 @@ class VersionedGridFieldDetailForm extends GridFieldDetailForm
         if (is_numeric($request->param('ID'))) {
             $record = $list->byId($request->param('ID'));
         } else {
-            $record = Object::create($gridField->getModelClass());
+            $record = SS_Object::create($gridField->getModelClass());
         }
 
         $class = $this->getItemRequestClass();
 
-        $handler = Object::create($class, $gridField, $this, $record, $controller, $this->name);
+        $handler = SS_Object::create($class, $gridField, $this, $record, $controller, $this->name);
         $handler->setTemplate($this->template);
 
         // if no validator has been set on the GridField and the record has a
